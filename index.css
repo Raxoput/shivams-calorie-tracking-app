@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-heading: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #e2e8f0; /* slate-200 */
+  font-size: 17px; /* Increased base font size */
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Custom focus outline for accessibility */
+*:focus-visible {
+  outline: 2px solid #38bdf8; /* sky-400 */
+  outline-offset: 2px;
+  border-radius: 2px; /* Slight rounding for the outline itself */
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulseGentle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+@keyframes slideInTopRight {
+  from { opacity: 0; transform: translate(30%, -30%); }
+  to { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes ingredientEnter {
+  from { opacity: 0; transform: translateX(-15px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes ingredientExit {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(15px); }
+}
+
+/* Animation Utility Classes */
+.animate-fadeInUp { animation: fadeInUp 0.4s ease-out forwards; }
+.animate-fadeIn { animation: fadeIn 0.25s ease-out forwards; }
+.animate-pulse-gentle-hover:hover { animation: pulseGentle 1.5s infinite; }
+.animate-slideInTopRight { animation: slideInTopRight 0.35s ease-out forwards; }
+.ingredient-row-enter { animation: ingredientEnter 0.3s ease-out forwards; }
+.ingredient-row-exit { animation: ingredientExit 0.3s ease-out forwards; }
+
+/* General Button Styling */
+button, .button { transition: all 0.15s ease-in-out; }
+button:hover, .button:hover { filter: brightness(1.1); }
+button:active, .button:active { transform: scale(0.97); filter: brightness(0.9); }
+
+/* Input Styling */
+input[type="text"], input[type="number"], input[type="email"], input[type="password"], select, textarea {
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Hide spinners from number inputs - more aggressive */
+input[type=number] {
+  -moz-appearance: textfield !important; /* Firefox */
+  appearance: textfield !important;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+  display: none !important; /* Force hide */
+}
+
+
+/* Custom Scrollbar (reusable) */
+.custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: rgba(51, 65, 85, 0.4); border-radius: 2.5px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #64748b; border-radius: 2.5px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+textarea.custom-scrollbar::-webkit-scrollbar { width: 6px; } /* Slightly wider for textareas */
+
+
+/* Weekly Planner Day Card Styling */
+.day-card {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.day-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+}
+.meal-assignments-list { /* For the list of meals within a day card */
+  /* Add specific styling if needed, like min-height or spacing */
+}
+
+
+/* Meal Aura (might be less relevant now or used differently) */
+/* If MealComponent is mainly in a modal, this aura might not be on the primary "card" anymore */
+/* .meal-aura { transition: box-shadow 0.5s ease-in-out; }
+.meal-aura-low { box-shadow: 0 0 18px -2px rgba(59, 130, 246, 0.25); }
+.meal-aura-medium { box-shadow: 0 0 20px 0px rgba(245, 158, 11, 0.30); }
+.meal-aura-high { box-shadow: 0 0 22px 2px rgba(239, 68, 68, 0.35); } */
+
+
+/* Donut Chart Styling (remains useful for MealComponent) */
+.donut-chart-segment { transform-origin: center; }
+.donut-chart-text { text-anchor: middle; transition: opacity 0.3s ease-in-out; }
+
+/* Ensure custom scrollbar applies to any textarea elements */
+textarea.custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; }
+textarea.custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
+textarea.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #64748b; }
